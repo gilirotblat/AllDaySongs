@@ -10,7 +10,7 @@ import gilir.gilifinalproject.models.songsapi.ArtistConverter
 import gilir.gilifinalproject.models.songsapi.Song
 
 
-private const val DB_VERSION =3
+private const val DB_VERSION =2
 private const val DB_NAME = "AppDataBase"
 
 @Database(entities = [Song::class], version = DB_VERSION)

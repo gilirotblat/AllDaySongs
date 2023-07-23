@@ -29,7 +29,8 @@ class HomeViewModel : ViewModel() {
 
    // private val _favoriteSongs: MutableLiveData<List<Song>> = MutableLiveData()
     val favoriteSongs: LiveData<List<Song>> = Application.repository.getFavoriteSongsLive()
-
+    private val _error: MutableLiveData<String> = MutableLiveData()
+    val error: LiveData<String> = _error
 
     init {
         viewModelScope.launch {
@@ -56,6 +57,7 @@ class HomeViewModel : ViewModel() {
     fun refresh(swiperefresh: SwipeRefreshLayout?) {
         //להוסיף בדיקת אינטרנט
         viewModelScope.launch {
+
             Application.repository.refresh()
             Application.repository.getFavoriteSongs()
             swiperefresh?.isRefreshing = false
